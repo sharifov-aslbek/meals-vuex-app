@@ -4,7 +4,7 @@
          <h1 class="text-[35px] font-bold text-orange-400">{{ filterCard.strCategory }}</h1>
          <img :src="filterCard.strCategoryThumb" alt="#">
          <p class="text-orange-400 w-[600px]">{{ filterCard.strCategoryDescription }}</p>
-         <button class="button bg-orange-400 text-white border-none py-2 px-5 mt-4 rounded-md" @click="$router.push('/')">Go to home</button>
+         <button class="button bg-orange-400 text-white border-none py-2 px-5 mt-4 rounded-md" @click="$router.push('/')">{{ $t('home') }}</button>
       </div>
 
    </div>

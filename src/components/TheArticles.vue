@@ -1,7 +1,7 @@
 <template>
    <section>
       <div class="container">
-         <h1 class="text-[40px] text-orange-400 font-bold">RANDOM MEALS</h1>
+         <h1 class="text-[40px] text-orange-400 font-bold">{{ $t('random') }}</h1>
          <div class="loader flex flex-wrap justify-center gap-5 mt-12" v-if="loader">
             <div
          class="flex flex-col bg-neutral-300 w-[321px] h-[279px] animate-pulse rounded-sm p-4 gap-4" v-for="item in 14">
@@ -19,7 +19,7 @@
             <div class="card border border-orange-400 hover:bg-orange-300 cursor-pointer" v-for="meal in card">
                <img :src="meal.strCategoryThumb" alt="#">
                <h3>{{ meal.strCategory }}</h3>
-               <button class="btn mt-3 mb-4 border border-red-400 px-4 hover:bg-red-600" @click="navigateHandler(meal.strCategory)">Read More</button>
+               <button class="btn mt-3 mb-4 border border-red-400 px-4 hover:bg-red-600" @click="navigateHandler(meal.strCategory)">{{ $t('read') }}</button>
                <!-- <p>{{ meal.strCategoryDescription }}</p> -->
             </div>
          </div>

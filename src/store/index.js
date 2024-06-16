@@ -2,7 +2,9 @@
 import { createStore } from 'vuex'
 import api from '@/modules/api'
 const store = createStore({
-  state: { },
+  state: { 
+    locale: 'EN'
+   },
   mutations: { },
   actions: {}, 
   modules: {api}
