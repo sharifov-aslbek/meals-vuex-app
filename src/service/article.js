@@ -6,6 +6,9 @@ const ArticleService = {
    },
    searchArticle(name) {
       return axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
+   },
+   letterArticle(name) {
+      return axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${name}`)
    }
 }
 

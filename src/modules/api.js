@@ -3,6 +3,7 @@ import ArticleService from "../service/article"
 const state = {
    data: [],
    searchArr: null,
+   letterArticle: null,
    isLoading: false
 }
 
@@ -25,6 +26,12 @@ const mutations = {
    },
    getSearchArticleSuccess(state , payload) {
       state.searchArr = payload
+   },
+   getLetterArticleStart(state) {
+      state.letterArticle = null
+   },
+   getLetterArticleSuccess(state , payload) {
+      state.letterArticle = payload
    }
 }
 
@@ -45,6 +52,15 @@ const actions = {
          ArticleService.searchArticle(value).then(response => {
             console.log(response.data.meals)
             context.commit('getSearchArticleSuccess' , response.data.meals)
+         })
+      })
+   },
+   letterArticle(context, value) {
+      return new Promise((resolve, reject) => {
+         context.commit("getLetterArticleStart")
+         ArticleService.letterArticle(value).then(response => {
+            console.log(response.data.meals)
+            context.commit('getLetterArticleSuccess' , response.data.meals)
          })
       })
    }

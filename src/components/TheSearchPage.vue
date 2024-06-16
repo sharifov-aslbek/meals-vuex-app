@@ -3,9 +3,12 @@
     <div class="container">
       <div class="menu flex justify-between">
         <h3 class="logo">Home</h3>
-        <ul class="flex justify-between w-[300px]">
+        <ul class="flex justify-between w-[450px]">
           <li>
             <router-link to="search">{{ $t('search') }}</router-link>
+          </li>
+          <li>
+            <router-link to="search-letter">{{ $t('search-letter') }}</router-link>
           </li>
           <li>
             <select v-model="$i18n.locale">
