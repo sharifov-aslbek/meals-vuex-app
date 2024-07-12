@@ -10,7 +10,7 @@
    </div>
 </template>
 
-<script>
+<!-- <script>
 import { mapState } from 'vuex';
 export default {
    computed: {
@@ -23,6 +23,19 @@ export default {
      }
   },
 }
+</script> -->
+
+<script setup>
+import {ref , computed} from 'vue'
+import { useRoute } from 'vue-router';
+import { useStore } from 'vuex';
+let router = useRoute()
+let store = useStore()
+let card = computed(() => store.state.api.data)
+let loader = computed(() => store.state.api.isLoading)
+const filterCard = computed(() => {
+   return card.value.find(item => item.strCategory === router.params.slug)
+})
 </script>
 
 

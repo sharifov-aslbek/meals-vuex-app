@@ -27,7 +27,7 @@
    </section>
 </template>
 
-<script>
+<!-- <script>
 import { mapState } from 'vuex';
 export default {
    computed: {
@@ -38,10 +38,31 @@ export default {
   },
   methods: {
    navigateHandler(name) {
+      console.log(name);
       return this.$router.push(`/read/${name}`)
    }
   },
 }
-</script>
+</script> -->
 
+
+<script setup>
+   import { computed } from 'vue';
+   import { useStore } from 'vuex';
+   import { useRouter } from 'vue-router';
+   import { onMounted } from 'vue';
+
+   const store = useStore()
+   const route = useRouter()
+   const card = computed(() => store.state.api.data)
+   const loader = computed(() => store.state.api.isLoading)
+   function navigateHandler (name) {
+      route.push(`/read/${name}`)
+   }
+
+   onMounted(() => {
+  console.log('Component has been mounted');
+});
+
+</script>
 <style></style>
