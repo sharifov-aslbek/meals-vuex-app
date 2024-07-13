@@ -1,7 +1,7 @@
 <template>
    <div class="container">
       <div class="top-content flex items-center flex-col gap-5">
-         <h1>Search Meals</h1>
+         <h1>Search Meals test</h1>
          <input type="text" v-model="inputValue" placeholder="Search meals .." class="outline-none border-2 rounded-md px-3 border-orange-400">
          <button class="searcher bg-orange-400 py-1 px-5" @click="navigateHandler">Search</button>
       </div>
@@ -23,7 +23,7 @@
    </div>
 </template>
 
-
+<!-- 
 <script>
 import {mapState} from 'vuex'
 export default {
@@ -51,7 +51,30 @@ export default {
    }
 
 }
-</script>
+</script> -->
 
+
+<script setup>
+import { ref , computed } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+let store = useStore()
+let route = useRouter()
+let inputValue = ref('')
+let checkEnter = ref('')
+let searchArr = computed(() => store.state.api.searchArr)
+
+const navigateHandler = async () => {
+   await store.dispatch('searchArticle', inputValue.value);
+};
+
+const checkEnterId = function (id) {
+   checkEnter.value = id
+}
+
+const navigatePage = function (id) {
+   return route.push(`/search-read/${id}`)
+}
+</script>
 <style>
 </style>

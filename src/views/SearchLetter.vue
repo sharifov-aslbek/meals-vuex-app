@@ -18,7 +18,7 @@
 </template>
 
 
-<script>
+<!-- <script>
 import {mapState} from 'vuex'
 export default {
    computed: {
@@ -92,7 +92,74 @@ export default {
       }
    },
 }
-</script>
+</script> -->
 
+<script setup>
+import { computed, ref } from 'vue';  
+import { useStore } from 'vuex';
+let store = useStore()
+let lettersArray = ref([
+{
+               name: 'a',
+            },
+            {
+               name: 'b',
+            },
+            {
+               name: 'c',
+            },
+            {
+               name: 'd',
+            },
+            {
+               name: 'e',
+            },
+            {
+               name: 'f',
+            },
+            {
+               name: 'g',
+            },
+            {
+               name: 'h',
+            },
+            {
+               name: 'i',
+            },
+            {
+               name: 'j',
+            },
+            {
+               name: 'k',
+            },
+            {
+               name: 'l',
+            },
+            {
+               name: 'm',
+            },
+            {
+               name: 'n',
+            },
+            {
+               name: 'o',
+            },
+            {
+               name: 'p',
+            },
+            {
+               name: 'z',
+            },
+            {
+               name: 'y',
+            },
+]) 
+
+let letterArr = computed(() => store.state.api.letterArticle)
+const checkName = async (name) => {
+   await store.dispatch('letterArticle' , name)
+}
+
+</script>
 <style>
 </style>
